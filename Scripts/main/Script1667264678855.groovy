@@ -1,5 +1,11 @@
+import com.kazurayam.inspectus.core.Festum
 import com.kazurayam.inspectus.core.Service
+import com.kazurayam.inspectus.katalon.KatalonTestCaseCaller
 
+/**
+ * Test Cases/main
+ */
 Service service = new Service()
-Map<String, Object> parameters = new LinkedHashMap<>()
-service.execute(parameters)
+Festum festum = new KatalonTestCaseCaller()
+service.setFestum(festum)
+service.execute([:])

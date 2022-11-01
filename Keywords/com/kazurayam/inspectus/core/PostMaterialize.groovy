@@ -4,6 +4,6 @@ public class PostMaterialize implements PostFestum {
 
 	@Override
 	public void postprocess(Map<String, Object> parameters) throws InspectusException {
-		println "Goodbye"
+		println "Goodbye from " + this.getClass().getSimpleName()
 	}
 }
