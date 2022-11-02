@@ -16,14 +16,14 @@ public class Service {
 		if (festum == null) {
 			throw new InspectusException("festum must not be null")
 		}
-		
+
 		// ante festum
 		AnteFestum ante = new AnteMaterialize();
 		ante.preprocess([:])
-		
+
 		// in festum
 		festum.call("Test Cases/materialize", [:])
-		
+
 		// post festum
 		PostFestum post = new PostMaterialize();
 		post.postprocess([:])
