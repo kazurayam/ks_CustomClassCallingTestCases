@@ -101,7 +101,7 @@ When I run the `Test Cases/main`, I saw the following output:
 
 ![Success](docs/images/Service_class_called_a_TestCase_materialize.png)
 
-The `execute()` method of the `Service` object successfully called a Katalon Test Case `materialize`.
+**Success!** The `execute()` method of the `Service` object successfully called a Katalon Test Case `materialize`.
 
 ## This is the Magic
 
@@ -109,6 +109,6 @@ Please read the source of [`com.kazurayam.inspectus.katalon.KatalonTestCaseCalle
 
 Please note: it does NOT import any `com.kms.katalon.core.*` API. This means that the source code of `com.kazurayam.inspectus.katalon.KatalonTestCaseCaller` can compile OUTSIDE Katalon Studio. I can compile it in IDEA without Katalon's jar file.
 
-In order to  it uses Java Reflection API extensively.
+The class uses Java Reflection API extensively in order to obtain this flexibility.
 
 
