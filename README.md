@@ -103,3 +103,12 @@ When I run the `Test Cases/main`, I saw the following output:
 
 The `execute()` method of the `Service` object successfully called a Katalon Test Case `materialize`.
 
+## This is the Magic
+
+Please read the source of [`com.kazurayam.inspectus.katalon.KatalonTestCaseCaller`](Keywords/com/kazurayam/inspectus/katalon/KatalonTestCaseCaller.groovy).
+
+Please note: it does NOT import any `com.kms.katalon.core.*` API. This means that the source code of `com.kazurayam.inspectus.katalon.KatalonTestCaseCaller` can compile OUTSIDE Katalon Studio. I can compile it in IDEA without Katalon's jar file.
+
+In order to  it uses Java Reflection API extensively.
+
+
