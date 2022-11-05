@@ -51,9 +51,10 @@ public class KatalonTestCaseCaller implements Festum {
 	 */
 	static Object callKatalonTestCase(String testCaseName, Map<String, Object> binding) throws Exception {
 		Object calledTestCase = findTestCase(testCaseName)
-		return (Object)executeKeywordForPlatform(
-				getPLATFORM_BUILT_IN(),
-				"callTestCase", calledTestCase, binding)
+		Object[] params = new Object[2]
+		params[0] = calledTestCase
+		params[1] = binding
+		return (Object)executeKeywordForPlatform(getPLATFORM_BUILT_IN(), "callTestCase", params)
 	}
 
 	static Object findTestCase(String testCaseName) {
@@ -71,20 +72,16 @@ public class KatalonTestCaseCaller implements Festum {
 	 * public static Object executeKeywordForPlatform(String platform, String keyword, Object ...params)
 	 * ```
 	 */
-	static Object executeKeywordForPlatform(String platform, String keyword, Object calledTestCase, Map<String, Object> binding) {
+	static Object executeKeywordForPlatform(String platform, String keyword, Object... params) {
 		Objects.requireNonNull(platform)
 		Objects.requireNonNull(keyword)
-		Objects.requireNonNull(calledTestCase)
-		Objects.requireNonNull(binding)
+		Objects.requireNonNull(params)
 		Class<?> clazz = Class.forName("com.kms.katalon.core.keyword.internal.KeywordExecutor")
 		Class<?>[] args = new Class[3]
 		args[0] = String.class
 		args[1] = String.class
 		args[2] = Object[].class
 		Method method = clazz.getMethod("executeKeywordForPlatform", args)
-		Object[] params = new Object[2]
-		params[0] = calledTestCase
-		params[1] = binding
 		Object result = method.invoke(null, platform, keyword, params)
 		return result
 	}

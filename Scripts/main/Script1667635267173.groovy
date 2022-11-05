@@ -1,3 +1,4 @@
+
 import com.kazurayam.inspectus.core.Festum
 import com.kazurayam.inspectus.core.Service
 import com.kazurayam.inspectus.katalon.KatalonTestCaseCaller
